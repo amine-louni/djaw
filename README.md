@@ -14,7 +14,7 @@ service for fetching and displaying weather data and forecasts based on a given 
 
 ## Demo
 
-A demo site running this little app can be found [here](githubpages-placeholder).
+A demo site running this little app can be found [here](https://amine-louni.github.io/djaw/).
 
 
 ## Why?
@@ -51,20 +51,13 @@ $ npm install
 
 You can pick one of these options:
 
-1. serve this repository with a webserver of-your-choice
-2. having installed node.js, you can run a script starting a simple web server:
+1. serve this repository with a webserver of-your-choice.
 
-```
-$ ./scripts/web-server.js
-```
+2. install live-server npm 
 
-Then navigate your browser to `http://localhost:<port>/app/index.html` to see the app running in
-your browser.
-
-3. use vscode plugin live-server
+2. use vscode plugin live-server
 
  
-
 
 ## Contribute!
 
