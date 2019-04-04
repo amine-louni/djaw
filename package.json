@@ -1,0 +1,18 @@
+{
+  "name": "djaw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass:watch": "node-sass --watch scss -o css --source-map true"
+  },
+  "keywords": [],
+  "author": "Amine Louni",
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}

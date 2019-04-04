@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <!-- META DATA FOR  MOBILE  NAV ADRES BAR COLOR  AND DESCRIPTION -->
+    <meta name="theme-color" content="#4eacdd" />
+    <meta name="description" content="A responsive website" />
+    <meta name="keywords" content="bootstrap4" />
+    <meta name="author" content="amine louni" />
+    <!-- Fav and touch icons -->
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!--GOOGLE FONTS-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat%7cRoboto+Mono"
+      rel="stylesheet"
+    />
+    <!--STYLES -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <title>Djaw</title>
+  </head>
+
+  <body>
+    <!-- START HERE -->
+    <!--OVERLAY-->
+    <button class="menu btn text-right">
+      <span class="menu__bar menu__bar--1"></span>
+      <span class="menu__bar menu__bar--2"></span>
+      <span class="menu__bar menu__bar--3"></span>
+    </button>
+    <div class="overlay ">
+      <h3
+        class="overlay__heading text-center text-primary-light my-5 text-uppercase"
+      >
+        Add A Location
+      </h3>
+      <div
+        class="container d-flex flex-column justify-content-center align-items-center"
+      >
+        <input
+          type="text"
+          class="form-control form-control-lg "
+          placeholder="Enter a city name ..."
+        />
+        <button class="btn btn-primary-light btn-lg mt-4 px-5 w-50">
+          ADD
+        </button>
+      </div>
+    </div>
+    <div
+      class="main-display container d-flex flex-column justify-content-between  py-5 text-center bg-primary-light-2 border "
+    >
+      <h3 class="main-display__city text-uppercase">City Example</h3>
+      <h1 class="main-display__degrees display-1 text-primary">21</h1>
+      <div
+        class="main-display__description d-flex w-75 align-items-center mx-auto justify-content-between text-uppercase"
+      >
+        <h3 class="main-display__description-text">description</h3>
+        <img
+          class="main-display__description-icon"
+          src="http://openweathermap.org/img/w/10d.png"
+          alt="icon weather"
+        />
+      </div>
+      <div
+        class="main-display__low-height d-flex justify-content-around  w-75 mx-auto"
+      >
+        <div
+          class="main-display__low d-flex flex-column justify-content-around "
+        >
+          <span class="main-display__low-height-num text-primary">10</span>
+          <span class="main-display__low-height-desc">low</span>
+        </div>
+        <div
+          class="main-display__height  d-flex flex-column justify-content-around"
+        >
+          <span class="main-display__low-height-num text-primary">30</span>
+          <span class="main-display__low-height-desc">height</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabs bg-primary text-white">
+      <ul class="tabs__nav nav nav-tabs bg-white" id="myTab" role="tablist">
+        <li class="tabs__nav-item nav-item w-50 text-center">
+          <a
+            class="tabs__nav-link nav-link active"
+            id="home-tab"
+            data-toggle="tab"
+            href="#home"
+            role="tab"
+            aria-controls="home"
+            aria-selected="true"
+            >Home</a
+          >
+        </li>
+
+        <li class="tabs__nav-item nav-item w-50 text-center ">
+          <a
+            class="tabs__nav-link nav-link"
+            id="contact-tab"
+            data-toggle="tab"
+            href="#contact"
+            role="tab"
+            aria-controls="contact"
+            aria-selected="false"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <div class="tabs__content tab-content container" id="myTabContent">
+        <div
+          class="tabs__content__tab tab-pane fade show active"
+          id="home"
+          role="tabpanel"
+          aria-labelledby="home-tab"
+        >
+          <div class="d-flex justify-content-around sub-display mt-4">
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="tabs__content__tab tab-pane fade"
+          id="contact"
+          role="tabpanel"
+          aria-labelledby="contact-tab"
+        >
+          <div class="d-flex justify-content-around sub-display mt-4">
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

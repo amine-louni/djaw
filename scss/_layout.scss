@@ -1,0 +1,11 @@
+body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 75% 1fr;
+}
+.main-display {
+  grid-row: 1/2;
+}
+.tabs {
+  grid-row: 2/2;
+}

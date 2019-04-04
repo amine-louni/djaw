@@ -1,0 +1,104 @@
+/*
+* OVERRIDE BT CLASSES
+*/
+
+$enable-rounded: false !default;
+.nav-tabs {
+  border-bottom: none !important;
+}
+.nav-link.active {
+  background-color: $color-primary !important;
+  color: $color-white !important;
+  border-bottom: none;
+}
+.tabs__nav-link.nav-link {
+  border: none !important;
+}
+.tabs__nav-link.nav-link:not(.active) {
+  background-color: rgb(245, 243, 243);
+  opacity: 0.3;
+}
+/*MAIN DISPLAY*/
+
+.main-display {
+  &__degrees {
+    font-family: $font-display;
+    font-size: 10rem !important;
+    font-weight: bold !important;
+  }
+  &__description-icon {
+    height: 4rem;
+  }
+  &__low-height {
+    &-num {
+      font-size: 2.3rem;
+      font-weight: bolder;
+    }
+    &-desc {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/*menu*/
+
+.menu {
+  text-align: right;
+  position: fixed;
+  background-color: inherit;
+  top: 2vh;
+  right: 4vw;
+  width: 3.5rem;
+  background: none;
+  box-shadow: none;
+  outline: none;
+  z-index: 99999;
+  &--on {
+    & .menu__bar {
+      background-color: #fff;
+
+      &--1 {
+        transform: rotate(225deg);
+      }
+      &--2 {
+        transform: rotate(-225deg) translate(-4px, 5px);
+      }
+      &--3 {
+        opacity: 0;
+      }
+    }
+  }
+  &__bar {
+    display: block;
+    text-align: right;
+    height: 2px;
+    width: 100%;
+    background-color: #333;
+
+    transition: 0.4s ease-in-out;
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+
+    &--3 {
+      width: 70%;
+      float: right;
+    }
+  }
+}
+
+/*OVERLAY*/
+.overlay {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+
+  background-color: $color-primary;
+  z-index: 99998;
+  &__heading {
+    font-family: $font-display;
+    letter-spacing: 2px;
+  }
+}

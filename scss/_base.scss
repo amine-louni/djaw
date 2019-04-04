@@ -1,0 +1,41 @@
+/*
+    COLORS
+    color-priamry-dark : #0f0a3c;
+    color-priamry : #07456f;
+    color-priamry-light : #009f9d;
+    color-priamry-light-2 : #cdffeb;
+
+    color-white : #fffeec
+
+
+    FONTS
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+
+*/
+$color-primary-dark: #0f0a3c;
+$color-primary: #07456f;
+$color-primary-light: #009f9d;
+$color-primary-light-2: #cdffeb;
+$color-white: #fffeec;
+$theme-colors: (
+  "primary": #07456f,
+  "primary-dark": #0f0a3c,
+  "primary-light": #009f9d,
+  "primary-light-2": #f8fffc
+);
+
+$font-display: "Roboto Mono", monospace;
+$font: "Montserrat", sans-serif;
+/*PLACEHOLDERS*/
+
+%center-all {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  font-family: $font;
+}
