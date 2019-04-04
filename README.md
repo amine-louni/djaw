@@ -60,6 +60,7 @@ $ ./scripts/web-server.js
 
 Then navigate your browser to `http://localhost:<port>/app/index.html` to see the app running in
 your browser.
+
 3. use vscode plugin live-server
 
  
