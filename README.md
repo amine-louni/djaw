@@ -1,6 +1,6 @@
 # djaw - weather forecast app written in Javascript
 
-
+> ps : this app is not finished yet !, you can follow the changes by watching the repo .
  
 
  
