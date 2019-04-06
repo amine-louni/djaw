@@ -47,23 +47,48 @@ body {
   opacity: 0.3; }
 
 /*MAIN DISPLAY*/
-.main-display__degrees {
-  font-family: "Roboto Mono", monospace;
-  font-size: 10rem !important;
-  font-weight: bold !important; }
+.main-display {
+  background-image: linear-gradient(to bottom, rgba(7, 69, 111, 0.5), rgba(0, 159, 157, 0.4)), url("../img/bg-images/rain.jpg");
+  background-size: cover; }
+  .main-display__city {
+    border: 3px solid #fff;
+    color: #fff;
+    width: 65%;
+    padding: 7px;
+    margin: auto; }
+  .main-display__deg-desc-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+  .main-display__degrees {
+    position: relative;
+    font-family: "Roboto Mono", monospace;
+    font-size: 10rem !important;
+    font-weight: bold !important; }
+  .main-display__description-icon {
+    height: 4rem; }
+  .main-display__wind-hum-num {
+    font-size: 2.3rem;
+    font-weight: bolder; }
+    .main-display__wind-hum-num span {
+      font-size: 0.8rem; }
+  .main-display__wind-hum-img {
+    height: 1.3rem;
+    margin-left: 0.3rem; }
 
-.main-display__description-icon {
-  height: 4rem; }
+/*SUB DISPLAY*/
+.sub-display__box__icon {
+  width: 50% !important;
+  display: block;
+  margin: 3px auto; }
 
-.main-display__wind-hum-num {
-  font-size: 2.3rem;
-  font-weight: bolder; }
-  .main-display__wind-hum-num span {
-    font-size: 0.8rem; }
-
-.main-display__wind-hum-img {
-  height: 1.3rem;
-  margin-left: 0.3rem; }
+.sub-display__box__degree {
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50%;
+  margin: auto;
+  margin: auto 3px;
+  position: relative; }
 
 /*menu*/
 .menu {
@@ -77,20 +102,18 @@ body {
   box-shadow: none;
   outline: none;
   z-index: 99999; }
-  .menu--on .menu__bar {
-    background-color: #fff; }
-    .menu--on .menu__bar--1 {
-      transform: rotate(225deg); }
-    .menu--on .menu__bar--2 {
-      transform: rotate(-225deg) translate(-4px, 5px); }
-    .menu--on .menu__bar--3 {
-      opacity: 0; }
+  .menu--on .menu__bar--1 {
+    transform: rotate(225deg); }
+  .menu--on .menu__bar--2 {
+    transform: rotate(-225deg) translate(-4px, 5px); }
+  .menu--on .menu__bar--3 {
+    opacity: 0; }
   .menu__bar {
     display: block;
     text-align: right;
     height: 2px;
     width: 100%;
-    background-color: #333;
+    background-color: #fff;
     transition: 0.4s ease-in-out; }
     .menu__bar:not(:last-child) {
       margin-bottom: 5px; }

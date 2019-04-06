@@ -61,14 +61,108 @@ class Weather {
  *===================================================================================*/
 class UI {
   constructor() {}
+  static formatAMPM(date) {
+    var hours = date.getHours();
+
+    var ampm = hours >= 12 ? "pm" : "am";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+
+    var strTime = hours + ampm;
+    return strTime;
+  }
+  static displayBg(bgSrc) {
+    const url = `url("/img/bg-images/${bgSrc}.jpg")`;
+    document.querySelector(".main-display").style.backgroundImage = url;
+    console.log(url);
+  }
   static display(content, target) {
     document.querySelector(target).innerHTML = content;
   }
   static displayImg(src, className, parent) {
+    const parentElement = document.querySelector(parent);
+    while (parentElement.contains(document.querySelector("." + className))) {
+      parentElement.removeChild(document.querySelector("." + className));
+    }
+
     const img = document.createElement("IMG");
     img.className = className;
     img.src = src;
-    document.querySelector(parent).appendChild(img);
+
+    parentElement.appendChild(img);
+  }
+  static displayHourly(array) {
+    let box, time, degree, icon;
+    const parentElement = document.querySelector(".sub-display--hourly");
+    parentElement.innerHTML = ``;
+    array.every((element, index) => {
+      box = document.createElement("DIV");
+      box.className = "sub-display__box text-center d-flex  flex-column";
+
+      time = document.createElement("DIV");
+      time.classList.add("sub-display__box__time");
+      time.textContent = this.formatAMPM(new Date(element.time * 1000));
+
+      degree = document.createElement("DIV");
+      degree.classList.add("sub-display__box__degree");
+      degree.innerHTML = Math.trunc(element.temperature) + "&deg;";
+
+      icon = document.createElement("IMG");
+      icon.className = "sub-display__box__icon  ";
+      icon.setAttribute("src", `img/summary-icons/${element.icon}-white.png`);
+
+      //append sub-sub boxes to the sub
+      box.appendChild(icon);
+      box.appendChild(time);
+      box.appendChild(degree);
+
+      // add box to parent element
+      parentElement.appendChild(box);
+
+      if (index === 6) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+  }
+  static displayDaily(array) {
+    let box, time, degree, icon, days;
+    days = ["Sun", "Mon", "Thu", "Wed", "Thurs", "Fri", "Sat"];
+    const parentElement = document.querySelector(".sub-display--daily");
+    parentElement.innerHTML = ``;
+    array.every((element, index) => {
+      box = document.createElement("DIV");
+      box.className = "sub-display__box text-center d-flex  flex-column";
+
+      time = document.createElement("DIV");
+      time.classList.add("sub-display__box__time");
+      time.textContent = days[new Date(element.time * 1000).getDay()];
+
+      degree = document.createElement("DIV");
+      degree.classList.add("sub-display__box__degree");
+      degree.innerHTML = `${Math.trunc(
+        element.temperatureMin
+      )}&deg;/ ${Math.trunc(element.temperatureMax)}&deg;`;
+
+      icon = document.createElement("IMG");
+      icon.className = "sub-display__box__icon  ";
+      icon.setAttribute("src", `img/summary-icons/${element.icon}-white.png`);
+
+      //append sub-sub boxes to the sub
+      box.appendChild(icon);
+      box.appendChild(time);
+      box.appendChild(degree);
+
+      // add box to parent element
+      parentElement.appendChild(box);
+
+      if (index === 4) {
+        return false;
+      } else {
+        return true;
+      }
+    });
   }
 }
 
@@ -99,8 +193,10 @@ $(function() {
       .then(data => getWeather.fetchWeather(data))
       .then(data => {
         console.log(data);
+        //Main Panel
+        UI.displayBg(data.currently.icon);
         UI.display(
-          Math.trunc(data.currently.temperature),
+          Math.trunc(data.currently.temperature) + "&deg;",
           ".main-display__degrees"
         );
         UI.display(data.currently.summary, ".main-display__description-text");
@@ -109,14 +205,17 @@ $(function() {
           "#wind-speed"
         );
         UI.display(
-          Math.trunc(data.currently.humidity) + "<span>%<span>",
+          Math.trunc(data.currently.humidity * 100) + "<span>%<span>",
           "#hum-pers"
         );
         UI.displayImg(
           `/img/summary-icons/${data.currently.icon}-white.png`,
           "main-display__description-icon",
-          ".main-display__description"
+          ".main-display__deg-desc-wrapper"
         );
+        //BOTTOM PANEL
+        UI.displayHourly(data.hourly.data);
+        UI.displayDaily(data.daily.data);
       });
   });
 }); /*END OF MAIN FUNCTION */

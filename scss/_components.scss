@@ -21,7 +21,27 @@ $enable-rounded: false !default;
 /*MAIN DISPLAY*/
 
 .main-display {
+  background-image: linear-gradient(
+      to bottom,
+      rgba($color-primary, 0.5),
+      rgba($color-primary-light, 0.4)
+    ),
+    url("../img/bg-images/rain.jpg");
+  background-size: cover;
+  &__city {
+    border: 3px solid #fff;
+    color: #fff;
+    width: 65%;
+    padding: 7px;
+    margin: auto;
+  }
+  &__deg-desc-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
   &__degrees {
+    position: relative;
     font-family: $font-display;
     font-size: 10rem !important;
     font-weight: bold !important;
@@ -43,7 +63,26 @@ $enable-rounded: false !default;
     }
   }
 }
-
+/*SUB DISPLAY*/
+.sub-display {
+  &__box {
+    &:nth-child(odd) {
+    }
+    &__icon {
+      width: 50% !important;
+      display: block;
+      margin: 3px auto;
+    }
+    &__degree {
+      font-weight: bold;
+      text-align: center;
+      border-radius: 50%;
+      margin: auto;
+      margin: auto 3px;
+      position: relative;
+    }
+  }
+}
 /*menu*/
 
 .menu {
@@ -53,14 +92,13 @@ $enable-rounded: false !default;
   top: 2vh;
   right: 4vw;
   width: 3.5rem;
+
   background: none;
   box-shadow: none;
   outline: none;
   z-index: 99999;
   &--on {
     & .menu__bar {
-      background-color: #fff;
-
       &--1 {
         transform: rotate(225deg);
       }
@@ -77,7 +115,7 @@ $enable-rounded: false !default;
     text-align: right;
     height: 2px;
     width: 100%;
-    background-color: #333;
+    background-color: #fff;
 
     transition: 0.4s ease-in-out;
     &:not(:last-child) {

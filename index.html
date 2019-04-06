@@ -72,16 +72,18 @@
         </button>
       </div>
     </div>
+    <!--MAIN DISPLAY-->
     <div
-      class="main-display container d-flex flex-column justify-content-between  py-5 text-center bg-primary-dark text-white   "
+      class="main-display container d-flex flex-column justify-content-between  py-5 text-center      "
     >
       <h3 class="main-display__city text-uppercase">City Example</h3>
-      <h1 class="main-display__degrees display-1 text-primary">21</h1>
+      <div class="main-display__deg-desc-wrapper">
+        <h1 class="main-display__degrees display-1 text-white">21</h1>
+      </div>
+      <h3 class="main-display__description-text">description</h3>
       <div
         class="main-display__description d-flex w-75 align-items-center mx-auto justify-content-between text-uppercase"
-      >
-        <h3 class="main-display__description-text">description</h3>
-      </div>
+      ></div>
       <div
         class="main-display__wind-hum d-flex justify-content-around  w-75 mx-auto"
       >
@@ -111,7 +113,7 @@
         </div>
       </div>
     </div>
-
+    <!--BOTTOM PANEL-->
     <div class="tabs bg-primary text-white">
       <ul class="tabs__nav nav nav-tabs bg-white" id="myTab" role="tablist">
         <li class="tabs__nav-item nav-item w-50 text-center">
@@ -119,11 +121,11 @@
             class="tabs__nav-link nav-link active"
             id="home-tab"
             data-toggle="tab"
-            href="#home"
+            href="#hourly"
             role="tab"
             aria-controls="home"
             aria-selected="true"
-            >Home</a
+            >Hourly</a
           >
         </li>
 
@@ -132,22 +134,24 @@
             class="tabs__nav-link nav-link"
             id="contact-tab"
             data-toggle="tab"
-            href="#contact"
+            href="#daily"
             role="tab"
             aria-controls="contact"
             aria-selected="false"
-            >Contact</a
+            >Daily</a
           >
         </li>
       </ul>
-      <div class="tabs__content tab-content container" id="myTabContent">
+      <div class="tabs__content tab-content " id="myTabContent">
         <div
           class="tabs__content__tab tab-pane fade show active"
-          id="home"
+          id="hourly"
           role="tabpanel"
           aria-labelledby="home-tab"
         >
-          <div class="d-flex justify-content-around sub-display mt-4">
+          <div
+            class="d-flex justify-content-between sub-display sub-display--hourly mt-3"
+          >
             <div class="sub-display__box text-center d-flex  flex-column">
               <div class="sub-display__box__time">1 PM</div>
               <div class="sub-display__box__degree">20</div>
@@ -176,13 +180,15 @@
         </div>
         <div
           class="tabs__content__tab tab-pane fade"
-          id="contact"
+          id="daily"
           role="tabpanel"
           aria-labelledby="contact-tab"
         >
-          <div class="d-flex justify-content-around sub-display mt-4">
+          <div
+            class="d-flex justify-content-around sub-display  sub-display--daily mt-3"
+          >
             <div class="sub-display__box text-center d-flex  flex-column">
-              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__time">MON</div>
               <div class="sub-display__box__degree">20</div>
             </div>
             <div class="sub-display__box text-center d-flex  flex-column">
