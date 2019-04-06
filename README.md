@@ -6,8 +6,8 @@
  
  
  
-"OpenWeather App" is a small Javascript  project that makes use of the [OpenWeatherMap](http://openweathermap.org/)
-service for fetching and displaying weather data and forecasts based on a given location (city).
+"Djaw" is a small Javascript  project that makes use of the [Dark Sky](https://darksky.net)
+service for fetching and displaying weather data and forecasts based on a given location (latitude & longtitude).
 
  
 
@@ -22,9 +22,9 @@ A demo site running this little app can be found [here](https://amine-louni.gith
 Points of interests:
 
 * Building an app with Javascript (of course!)
-* Building an app based on the [OpenWeatherMap API](http://openweathermap.org/API/)
-* customize bootstrap
- 
+* Building an app based on the [OpenWeatherMap API](https://darksky.net/)
+* Building an app based on the [Open Cage API](https://opencagedata.com/api/)
+* customizing bootstrap
 * Defining a service for fetching weather data from openweathermap.com  using async/await and promises
 * Defining a custom directive for instantly embedding sort of "weather data day panel"
  
