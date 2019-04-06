@@ -61,8 +61,9 @@ You can pick one of these options:
 
 ## Contribute!
 
-Ideas, suggestions and pull requests are welcome. Someone willing to suggest a fancy (responsive) design
-for desktop and mobile use?
+Ideas, suggestions and pull requests are welcome.I just Build my Local Weather App. It was funny. During the process I still reinforcing my knowledge on AJAX calls specially with JSON format. Please let me know what you think & if there is something that could improve this project. Regards to everyone !
+
+
 
 
 ## Todo
