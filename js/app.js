@@ -46,7 +46,7 @@ class Weather {
   async fetchWeather(geoLocation) {
     console.log(geoLocation);
     const fetchWeatherResponse = await fetch(
-      `${this.prefix}${geoLocation.lat},${geoLocation.lng}`
+      `${this.prefix}${geoLocation.lat},${geoLocation.lng}?units=si`
     );
 
     const fetchWeatherResourse = await fetchWeatherResponse.json();
@@ -61,15 +61,20 @@ class Weather {
  *===================================================================================*/
 class UI {
   constructor() {}
-  display(content, target) {
-    document.querySelector(target).textContent = content;
+  static display(content, target) {
+    document.querySelector(target).innerHTML = content;
+  }
+  static displayImg(src, className, parent) {
+    const img = document.createElement("IMG");
+    img.className = className;
+    img.src = src;
+    document.querySelector(parent).appendChild(img);
   }
 }
 
 /*INIT OBJECTS */
 const getCityGeo = new Geo();
 const getWeather = new Weather();
-const ui = new UI();
 
 /** ==================================================================================
  *                                                                                   =
@@ -86,7 +91,7 @@ $(function() {
   /* FETCH WATHER DATA FROM INPUT */
   $("#add-city-btn").on("click", function() {
     const inputCityVal = $("#location-input").val();
-    ui.display(inputCityVal, ".main-display__city");
+    UI.display(inputCityVal, ".main-display__city");
 
     const geoLocation = getCityGeo.getLocationRes(inputCityVal);
     geoLocation
@@ -94,6 +99,24 @@ $(function() {
       .then(data => getWeather.fetchWeather(data))
       .then(data => {
         console.log(data);
+        UI.display(
+          Math.trunc(data.currently.temperature),
+          ".main-display__degrees"
+        );
+        UI.display(data.currently.summary, ".main-display__description-text");
+        UI.display(
+          Math.trunc(data.currently.windSpeed) + "<span> Km/s<span>",
+          "#wind-speed"
+        );
+        UI.display(
+          Math.trunc(data.currently.humidity) + "<span>%<span>",
+          "#hum-pers"
+        );
+        UI.displayImg(
+          `/img/summary-icons/${data.currently.icon}-white.png`,
+          "main-display__description-icon",
+          ".main-display__description"
+        );
       });
   });
 }); /*END OF MAIN FUNCTION */

@@ -49,7 +49,7 @@
       <span class="menu__bar menu__bar--2"></span>
       <span class="menu__bar menu__bar--3"></span>
     </button>
-    <div class="overlay  n">
+    <div class="overlay">
       <h3
         class="overlay__heading text-center text-primary-light my-5 text-uppercase"
       >
@@ -73,7 +73,7 @@
       </div>
     </div>
     <div
-      class="main-display container d-flex flex-column justify-content-between  py-5 text-center bg-primary-light-2 border "
+      class="main-display container d-flex flex-column justify-content-between  py-5 text-center bg-primary-dark text-white   "
     >
       <h3 class="main-display__city text-uppercase">City Example</h3>
       <h1 class="main-display__degrees display-1 text-primary">21</h1>
@@ -81,26 +81,33 @@
         class="main-display__description d-flex w-75 align-items-center mx-auto justify-content-between text-uppercase"
       >
         <h3 class="main-display__description-text">description</h3>
-        <img
-          class="main-display__description-icon"
-          src="http://openweathermap.org/img/w/10d.png"
-          alt="icon weather"
-        />
       </div>
       <div
-        class="main-display__low-height d-flex justify-content-around  w-75 mx-auto"
+        class="main-display__wind-hum d-flex justify-content-around  w-75 mx-auto"
       >
         <div
-          class="main-display__low d-flex flex-column justify-content-around "
+          class="main-display__low d-flex  justify-content-between align-items-center "
         >
-          <span class="main-display__low-height-num text-primary">10</span>
-          <span class="main-display__low-height-desc">low</span>
+          <span id="wind-speed" class="main-display__wind-hum-num text-primary"
+            >10</span
+          >
+          <img
+            class="d-block main-display__wind-hum-img"
+            src="img/icons/wind-speed-flag.png"
+            alt="wind speed flag"
+          />
         </div>
         <div
-          class="main-display__height  d-flex flex-column justify-content-around"
+          class="main-display__low d-flex  justify-content-between align-items-center"
         >
-          <span class="main-display__low-height-num text-primary">30</span>
-          <span class="main-display__low-height-desc">height</span>
+          <span id="hum-pers" class="main-display__wind-hum-num text-primary"
+            >30</span
+          >
+          <img
+            class="d-block main-display__wind-hum-img"
+            src="img/icons/humidity.png"
+            alt="wind speed flag"
+          />
         </div>
       </div>
     </div>

@@ -55,13 +55,15 @@ body {
 .main-display__description-icon {
   height: 4rem; }
 
-.main-display__low-height-num {
+.main-display__wind-hum-num {
   font-size: 2.3rem;
   font-weight: bolder; }
+  .main-display__wind-hum-num span {
+    font-size: 0.8rem; }
 
-.main-display__low-height-desc {
-  font-size: 1.5rem;
-  text-transform: uppercase; }
+.main-display__wind-hum-img {
+  height: 1.3rem;
+  margin-left: 0.3rem; }
 
 /*menu*/
 .menu {

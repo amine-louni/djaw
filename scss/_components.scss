@@ -29,14 +29,17 @@ $enable-rounded: false !default;
   &__description-icon {
     height: 4rem;
   }
-  &__low-height {
+  &__wind-hum {
     &-num {
       font-size: 2.3rem;
       font-weight: bolder;
+      & span {
+        font-size: 0.8rem;
+      }
     }
-    &-desc {
-      font-size: 1.5rem;
-      text-transform: uppercase;
+    &-img {
+      height: 1.3rem;
+      margin-left: 0.3rem;
     }
   }
 }
