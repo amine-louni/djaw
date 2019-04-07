@@ -18,14 +18,23 @@ class Geo {
   }
 
   async getLocationRes(cityName) {
-    const response = await fetch(
-      `${this.prefix}${cityName}&key=${this.key}&pretty=1`
-    );
-    const resource = await response.json();
+    if (cityName !== "") {
+      const response = await fetch(
+        `${this.prefix}${cityName}&key=${this.key}&pretty=1`
+      );
+      const resource = await response.json();
 
-    return {
-      resource
-    };
+      return {
+        resource
+      };
+    } else {
+      UI.createEl(
+        "DIV",
+        "alert alert-danger text-center",
+        "you need to fill the field",
+        ".overlay"
+      );
+    }
   }
 }
 /** ==================================================================================
@@ -71,8 +80,17 @@ class UI {
     var strTime = hours + ampm;
     return strTime;
   }
+  static createEl(tag, className, content, parent, time = 1500) {
+    const box = document.createElement(tag);
+    box.className = className;
+    box.innerHTML = content;
+    document.querySelector(parent).appendChild(box);
+    setTimeout(() => {
+      $(box).fadeOut();
+    }, time);
+  }
   static displayBg(bgSrc) {
-    const url = `url("/img/bg-images/${bgSrc}.jpg")`;
+    const url = `linear-gradient(to bottom, #07456f98,#009f9c71),url("/img/bg-images/${bgSrc}.jpg")`;
     document.querySelector(".main-display").style.backgroundImage = url;
     console.log(url);
   }
@@ -252,8 +270,12 @@ class Ls {
       cities = JSON.parse(localStorage.getItem(this.storageName));
     }
     if (!cities.includes(city)) {
-      cities.push(city);
-      localStorage.setItem(this.storageName, JSON.stringify(cities));
+      if (city !== "") {
+        cities.push(city);
+        localStorage.setItem(this.storageName, JSON.stringify(cities));
+      } else {
+        console.error("empty string");
+      }
     }
   }
 
@@ -265,6 +287,14 @@ class Ls {
       city = cachedCities[cachedCities.length - 1];
     } else {
       $(".overlay").slideDown();
+      UI.createEl(
+        "DIV",
+        "alert alert-danger text-center",
+        "you need to add your location !",
+        ".overlay",
+        4000
+      );
+      $(".menu").addClass("menu--on");
       city = "alger";
     }
     return city;
@@ -276,7 +306,7 @@ class Ls {
       const cities = JSON.parse(localStorage.getItem(this.storageName));
       return cities;
     } else {
-      return ["alger"];
+      return ["paris"];
     }
   }
   deleteCity(cityName) {
@@ -300,12 +330,19 @@ const ls = new Ls("cities");
  *===================================================================================*/
 function main(city) {
   console.log(city);
-  UI.display(city, ".main-display__city");
+  UI.display(
+    `<i class="fas fa-map-marker-alt"></i> ` + city,
+    ".main-display__city"
+  );
   ls.addCity(city);
 
   const geoLocation = getCityGeo.getLocationRes(city);
   geoLocation
-    .then(data => data.resource.results[0].geometry)
+    .then(data => {
+      if (data !== undefined) {
+        return data.resource.results[0].geometry;
+      }
+    })
     .then(data => getWeather.fetchWeather(data))
     .then(data => {
       console.log(data);
