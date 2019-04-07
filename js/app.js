@@ -53,14 +53,14 @@ class Weather {
     return fetchWeatherResourse;
   }
 }
-
 /** ==================================================================================
  *                                                                                   =
- *      THIS CLASS IS RESPONSIBLE FOR DISPLAYING  WEATHER DATA   ON THE UI           =
+ *       THIS CLASS IS RESPONSIBLE FOR  DISPLAY THE DATA ON THE UI                   =
  *                                                                                   =
  *===================================================================================*/
 class UI {
   constructor() {}
+
   static formatAMPM(date) {
     var hours = date.getHours();
 
@@ -78,6 +78,11 @@ class UI {
   }
   static display(content, target) {
     document.querySelector(target).innerHTML = content;
+  }
+  static deleteOverlayCity(ev) {
+    if ((ev.id = "close")) {
+      ev.target.parentElement.remove();
+    }
   }
   static displayImg(src, className, parent) {
     const parentElement = document.querySelector(parent);
@@ -163,16 +168,40 @@ class UI {
         return true;
       }
     });
+
+    $(".loader-container").hide();
+  }
+  // display data from the cached cities on the overlay menu
+  static displayCachedCities() {
+    const cachedCities = ls.fetchCities();
+    console.log("cahedCites" + cachedCities);
+    const overlayBoxContainer = document.querySelector(".overlay__cities");
+    while (overlayBoxContainer.lastChild.id !== "cities-header") {
+      overlayBoxContainer.removeChild(overlayBoxContainer.lastChild);
+    }
+    cachedCities.forEach((city, index) => {
+      const overlayBox = document.createElement("DIV");
+      overlayBox.className = "overlay__box";
+
+      const overlayBoxCityName = document.createElement("SPAN");
+      overlayBoxCityName.className = "overlay__box__city-name";
+      overlayBoxCityName.innerHTML = city;
+
+      const overlayBoxCityTimes = document.createElement("SPAN");
+      overlayBoxCityTimes.className = "overlay__box__del";
+      overlayBoxCityTimes.innerHTML = "&times;";
+      overlayBoxCityTimes.setAttribute("id", "close");
+
+      overlayBox.appendChild(overlayBoxCityName);
+      overlayBox.appendChild(overlayBoxCityTimes);
+
+      overlayBoxContainer.appendChild(overlayBox);
+    });
   }
 }
-
-/*INIT OBJECTS */
-const getCityGeo = new Geo();
-const getWeather = new Weather();
-
 /** ==================================================================================
  *                                                                                   =
- *                                 MAIN FUNCTION:                                    =
+ *                          JQUERY MAIN FUNCTION FOR  THE UI                         =
  *                                                                                   =
  *===================================================================================*/
 $(function() {
@@ -182,40 +211,136 @@ $(function() {
     $(this).toggleClass("menu--on");
   });
 
-  /* FETCH WATHER DATA FROM INPUT */
-  $("#add-city-btn").on("click", function() {
-    const inputCityVal = $("#location-input").val();
-    UI.display(inputCityVal, ".main-display__city");
-
-    const geoLocation = getCityGeo.getLocationRes(inputCityVal);
-    geoLocation
-      .then(data => data.resource.results[0].geometry)
-      .then(data => getWeather.fetchWeather(data))
-      .then(data => {
-        console.log(data);
-        //Main Panel
-        UI.displayBg(data.currently.icon);
-        UI.display(
-          Math.trunc(data.currently.temperature) + "&deg;",
-          ".main-display__degrees"
-        );
-        UI.display(data.currently.summary, ".main-display__description-text");
-        UI.display(
-          Math.trunc(data.currently.windSpeed) + "<span> Km/s<span>",
-          "#wind-speed"
-        );
-        UI.display(
-          Math.trunc(data.currently.humidity * 100) + "<span>%<span>",
-          "#hum-pers"
-        );
-        UI.displayImg(
-          `/img/summary-icons/${data.currently.icon}-white.png`,
-          "main-display__description-icon",
-          ".main-display__deg-desc-wrapper"
-        );
-        //BOTTOM PANEL
-        UI.displayHourly(data.hourly.data);
-        UI.displayDaily(data.daily.data);
-      });
+  $(".overlay__cities").on("click", function(ev) {
+    if (ev.target.id === "close") {
+      const cityName = ev.target.previousElementSibling.textContent.toLocaleLowerCase();
+      ls.deleteCity(cityName);
+      $(ev.target.parentElement).fadeOut();
+    }
   });
-}); /*END OF MAIN FUNCTION */
+
+  /* FETCH WATHER DATA FROM INPUT */
+  function getInputVal() {
+    const inputCityVal = $("#location-input")
+      .val()
+      .trim()
+      .toLowerCase();
+    console.log(inputCityVal);
+    return inputCityVal;
+  }
+  $("#add-city-btn").on("click", function() {
+    UI.displayCachedCities();
+    main(getInputVal());
+    UI.displayCachedCities();
+  });
+});
+/** ==================================================================================
+ *                                                                                   =
+ *       THIS CLASS IS RESPONSIBLE FOR LOCAL STORAGE FETHCING/STROTING DATA          =
+ *                                                                                   =
+ *===================================================================================*/
+class Ls {
+  constructor(storageName) {
+    this.storageName = storageName;
+  }
+
+  addCity(city) {
+    let cities;
+    if (!JSON.parse(localStorage.getItem(this.storageName))) {
+      cities = [];
+    } else {
+      cities = JSON.parse(localStorage.getItem(this.storageName));
+    }
+    if (!cities.includes(city)) {
+      cities.push(city);
+      localStorage.setItem(this.storageName, JSON.stringify(cities));
+    }
+  }
+
+  fetchCity() {
+    let city;
+    let cachedCities = JSON.parse(localStorage.getItem(this.storageName));
+    if (cachedCities && cachedCities.length) {
+      cachedCities = JSON.parse(localStorage.getItem(this.storageName));
+      city = cachedCities[cachedCities.length - 1];
+    } else {
+      $(".overlay").slideDown();
+      city = "alger";
+    }
+    return city;
+  }
+  fetchCities() {
+    let cachedCities = JSON.parse(localStorage.getItem(this.storageName));
+
+    if (cachedCities && cachedCities !== []) {
+      const cities = JSON.parse(localStorage.getItem(this.storageName));
+      return cities;
+    } else {
+      return ["alger"];
+    }
+  }
+  deleteCity(cityName) {
+    if (JSON.parse(localStorage.getItem(this.storageName))) {
+      const cities = JSON.parse(localStorage.getItem(this.storageName));
+      cities.splice(cities.indexOf(cityName), 1);
+      localStorage.setItem(this.storageName, JSON.stringify(cities));
+    }
+  }
+}
+
+/*INIT OBJECTS */
+const getCityGeo = new Geo();
+const getWeather = new Weather();
+const ls = new Ls("cities");
+
+/** ==================================================================================
+ *                                                                                   =
+ *                                 MAIN FUNCTION:                                    =
+ *                                                                                   =
+ *===================================================================================*/
+function main(city) {
+  console.log(city);
+  UI.display(city, ".main-display__city");
+  ls.addCity(city);
+
+  const geoLocation = getCityGeo.getLocationRes(city);
+  geoLocation
+    .then(data => data.resource.results[0].geometry)
+    .then(data => getWeather.fetchWeather(data))
+    .then(data => {
+      console.log(data);
+      //Main Panel
+      UI.displayBg(data.currently.icon);
+      UI.display(
+        Math.trunc(data.currently.temperature) + "&deg;",
+        ".main-display__degrees"
+      );
+      UI.display(data.currently.summary, ".main-display__description-text");
+      UI.display(
+        Math.trunc(data.currently.windSpeed) + "<span> Km/s<span>",
+        "#wind-speed"
+      );
+      UI.display(
+        Math.trunc(data.currently.humidity * 100) + "<span>%<span>",
+        "#hum-pers"
+      );
+      UI.displayImg(
+        `/img/summary-icons/${data.currently.icon}-white.png`,
+        "main-display__description-icon",
+        ".main-display__deg-desc-wrapper"
+      );
+      //BOTTOM PANEL
+      UI.displayHourly(data.hourly.data);
+      UI.displayDaily(data.daily.data);
+    });
+}
+
+/** ==================================================================================
+ *                                                                                   =
+ *                                 ONLOAD FUNCTION:                                  =
+ *                                                                                   =
+ *===================================================================================*/
+window.onload = function() {
+  main(ls.fetchCity());
+  UI.displayCachedCities();
+};

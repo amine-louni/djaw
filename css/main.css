@@ -73,8 +73,8 @@ body {
     .main-display__wind-hum-num span {
       font-size: 0.8rem; }
   .main-display__wind-hum-img {
-    height: 1.3rem;
-    margin-left: 0.3rem; }
+    height: 1.5rem;
+    margin-left: 0.4rem; }
 
 /*SUB DISPLAY*/
 .sub-display__box__icon {
@@ -132,6 +132,61 @@ body {
   .overlay__heading {
     font-family: "Roboto Mono", monospace;
     letter-spacing: 2px; }
+  .overlay__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    width: 70%;
+    margin: 5px auto;
+    color: #fff;
+    font-size: 1.6rem;
+    border-bottom: 2px solid #009f9d;
+    text-transform: capitalize;
+    font-family: "Roboto Mono", monospace; }
+    .overlay__box__del {
+      color: tomato; }
+
+/*LOADER*/
+.loader-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #009f9d;
+  z-index: 99999999;
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px; }
+
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 6px;
+  box-sizing: border-box;
+  border: 26px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-hourglass 1.2s infinite; }
+
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  100% {
+    transform: rotate(1800deg); } }
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)

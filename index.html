@@ -43,6 +43,11 @@
 
   <body>
     <!-- START HERE -->
+    <!--LOADER-->
+    <div class="loader-container">
+      <div class="lds-hourglass"></div>
+    </div>
+
     <!--OVERLAY-->
     <button class="menu btn text-right">
       <span class="menu__bar menu__bar--1"></span>
@@ -58,18 +63,34 @@
       <div
         class="container d-flex flex-column justify-content-center align-items-center"
       >
-        <input
-          id="location-input"
-          type="text"
-          class="form-control form-control-lg "
-          placeholder="Enter a city name ..."
-        />
+        <div class="input-group">
+          <input
+            id="location-input"
+            type="text"
+            class="form-control form-control-lg "
+            placeholder="Enter a city name ..."
+          />
+          <div class="input-group-append border-0  ">
+            <span class="input-group-text"
+              ><i class="fas fa-map-marker-alt fa-fw"></i
+            ></span>
+          </div>
+        </div>
+
         <button
           id="add-city-btn"
           class="btn btn-primary-light btn-lg mt-4 px-5 w-50"
         >
           ADD
         </button>
+      </div>
+      <div class="overlay__cities mt-5">
+        <h4
+          id="cities-header"
+          class="text-center text-white display-5 text-uppercase"
+        >
+          your history
+        </h4>
       </div>
     </div>
     <!--MAIN DISPLAY-->
@@ -80,7 +101,7 @@
       <div class="main-display__deg-desc-wrapper">
         <h1 class="main-display__degrees display-1 text-white">21</h1>
       </div>
-      <h3 class="main-display__description-text">description</h3>
+      <h3 class="main-display__description-text text-white">description</h3>
       <div
         class="main-display__description d-flex w-75 align-items-center mx-auto justify-content-between text-uppercase"
       ></div>
@@ -90,7 +111,7 @@
         <div
           class="main-display__low d-flex  justify-content-between align-items-center "
         >
-          <span id="wind-speed" class="main-display__wind-hum-num text-primary"
+          <span id="wind-speed" class="main-display__wind-hum-num text-white"
             >10</span
           >
           <img
@@ -102,7 +123,7 @@
         <div
           class="main-display__low d-flex  justify-content-between align-items-center"
         >
-          <span id="hum-pers" class="main-display__wind-hum-num text-primary"
+          <span id="hum-pers" class="main-display__wind-hum-num text-white"
             >30</span
           >
           <img
