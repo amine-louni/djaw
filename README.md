@@ -22,17 +22,19 @@ A demo site running this little app can be found [here](https://amine-louni.gith
 Points of interests:
 
 * Building an app with Javascript (of course!)
-* Building an app based on the [OpenWeatherMap API](https://darksky.net/)
+* Building an app based on the [Dark Sky API](https://darksky.net/)
 * Building an app based on the [Open Cage API](https://opencagedata.com/api/)
-* customizing bootstrap
+* Customizing bootstrap
 * Defining a service for fetching weather data from openweathermap.com  using async/await and promises
 * Defining a custom directive for instantly embedding sort of "weather data day panel"
+* Build a progressive web application
  
 
 Djaw-app uses:
 * [Bootstrap v4.0.0](https://github.com/twbs/bootstrap)
 * [font awsome](https://fontawesome.com/)
 * [google fonts](https://fonts.google.com/)
+* [cors any where] (https://cors-anywhere.herokuapp.com/)
 
 
 ## Installation
@@ -55,7 +57,7 @@ You can pick one of these options:
 
 2. install live-server npm 
 
-2. use vscode plugin live-server
+2. use vscode plugin live-server 
 
  
 
@@ -73,13 +75,14 @@ Ideas, suggestions and pull requests are welcome.I just Build my Local Weather A
 * Provide "use current location" and fetch data via lat/lon
 * Build a view with n-day-forecast in typical weather app style
 * Improve UI/UX by integrating a fancy design, transitions, effects
+* Make The app a Progressive web application
 
 
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
 
-All data provided by the great service and API of [OpenWeatherMap](http://openweathermap.org/).
+All data provided by the great service and API of [DarkSky Api](https://darksky.net/).
 
 Copyright (c) 2019 Amine Louni 
 
