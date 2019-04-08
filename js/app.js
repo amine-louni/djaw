@@ -1,4 +1,17 @@
 /** ==================================================================================
+ *                                                                                   =
+ *                           SERVICE WORKER                                          =
+ *                                                                                   =
+ *===================================================================================*/
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("../sw.js")
+      .then(reg => console.log("service worker registerd"))
+      .catch(err => console.log(`Service worker err: ${err}`));
+  });
+}
+/** ==================================================================================
  * THIS CLASS IS RESPONSIBLE FOR FETCHING GEOMETRY  DATA FROM OPEN CAGE API          =
  * OPENCAGE API :                                                                    =
  * purpose : fetch the latitude and longtitude for the city to  add it as a parameter=
@@ -92,7 +105,6 @@ class UI {
   static displayBg(bgSrc) {
     const url = `linear-gradient(to bottom, #07456f98,#009f9c71),url("/img/bg-images/${bgSrc}.jpg")`;
     document.querySelector(".main-display").style.backgroundImage = url;
-    console.log(url);
   }
   static display(content, target) {
     document.querySelector(target).innerHTML = content;
@@ -192,7 +204,7 @@ class UI {
   // display data from the cached cities on the overlay menu
   static displayCachedCities() {
     const cachedCities = ls.fetchCities();
-    console.log("cahedCites" + cachedCities);
+
     const overlayBoxContainer = document.querySelector(".overlay__cities");
     while (overlayBoxContainer.lastChild.id !== "cities-header") {
       overlayBoxContainer.removeChild(overlayBoxContainer.lastChild);
@@ -329,7 +341,6 @@ const ls = new Ls("cities");
  *                                                                                   =
  *===================================================================================*/
 function main(city) {
-  console.log(city);
   UI.display(
     `<i class="fas fa-map-marker-alt"></i> ` + city,
     ".main-display__city"
