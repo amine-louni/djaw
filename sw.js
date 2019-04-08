@@ -1,17 +1,14 @@
-const cacheName = "cache v-1";
-const assets = ["/", "index.html", "/css/main.css", "/js/app.js"];
+const cacheName = "cache v-2";
+const assets = ["index.html", "/css/main.css", "/js/app.js"];
 
 //CALL INSTALL EVENT
 self.addEventListener("install", ev => {
   console.log("Service worker installed");
   ev.waitUntil(
-    caches
-      .open(cacheName)
-      .then(cache => {
-        console.log("Service worker : Caching Files");
-        cache.addAll(assets);
-      })
-      .then(() => self.skipWaiting())
+    caches.open(cacheName).then(cache => {
+      console.log("Service worker : Caching Files");
+      cache.addAll(assets);
+    })
   );
 });
 
@@ -39,7 +36,7 @@ self.addEventListener("fetch", ev => {
   console.log("Servieworker : Fetching");
   ev.respondWith(
     caches.match(ev.request).then(cahedResponse => {
-      return cahedResponse || fetch(event.request);
+      return cahedResponse || fetch(ev.request);
     })
   );
 });
