@@ -36,7 +36,7 @@ self.addEventListener("fetch", ev => {
   console.log("Servieworker : Fetching");
   ev.respondWith(
     caches.match(ev.request).then(cahedResponse => {
-      return cahedResponse || fetch(ev.request);
+      return fetch(ev.request) || cahedResponse;
     })
   );
 });
