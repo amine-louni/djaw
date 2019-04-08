@@ -407,7 +407,7 @@ function main(city) {
         "#hum-pers"
       );
       UI.displayImg(
-        `/img/summary-icons/${data.currently.icon}-white.png`,
+        `img/summary-icons/${data.currently.icon}-white.png`,
         "main-display__description-icon",
         ".main-display__deg-desc-wrapper"
       );
