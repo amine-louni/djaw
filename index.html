@@ -94,151 +94,146 @@
       </div>
     </div>
     <!--MAIN DISPLAY-->
-    <div class="row no-gutters">
-      <div class="col-md-6">
+
+    <div
+      class="main-display  d-flex flex-column justify-content-between  py-5 text-center      "
+    >
+      <h3 class="main-display__city text-uppercase">City Example</h3>
+      <div class="main-display__deg-desc-wrapper">
+        <h1 class="main-display__degrees display-1 text-white">21</h1>
+      </div>
+      <h3 class="main-display__description-text text-white">description</h3>
+      <div
+        class="main-display__description d-flex w-75 align-items-center mx-auto justify-content-between text-uppercase"
+      ></div>
+      <div
+        class="main-display__wind-hum d-flex justify-content-around  w-75 mx-auto"
+      >
         <div
-          class="main-display  d-flex flex-column justify-content-between  py-5 text-center      "
+          class="main-display__low d-flex  justify-content-between align-items-center "
         >
-          <h3 class="main-display__city text-uppercase">City Example</h3>
-          <div class="main-display__deg-desc-wrapper">
-            <h1 class="main-display__degrees display-1 text-white">21</h1>
-          </div>
-          <h3 class="main-display__description-text text-white">description</h3>
-          <div
-            class="main-display__description d-flex w-75 align-items-center mx-auto justify-content-between text-uppercase"
-          ></div>
-          <div
-            class="main-display__wind-hum d-flex justify-content-around  w-75 mx-auto"
+          <span id="wind-speed" class="main-display__wind-hum-num text-white"
+            >10</span
           >
-            <div
-              class="main-display__low d-flex  justify-content-between align-items-center "
-            >
-              <span
-                id="wind-speed"
-                class="main-display__wind-hum-num text-white"
-                >10</span
-              >
-              <img
-                class="d-block main-display__wind-hum-img"
-                src="img/icons/wind-speed-flag.png"
-                alt="wind speed flag"
-              />
+          <img
+            class="d-block main-display__wind-hum-img"
+            src="img/icons/wind-speed-flag.png"
+            alt="wind speed flag"
+          />
+        </div>
+        <div
+          class="main-display__low d-flex  justify-content-between align-items-center"
+        >
+          <span id="hum-pers" class="main-display__wind-hum-num text-white"
+            >30</span
+          >
+          <img
+            class="d-block main-display__wind-hum-img"
+            src="img/icons/humidity.png"
+            alt="wind speed flag"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--BOTTOM PANEL-->
+
+    <div class="tabs bg-primary text-white">
+      <ul class="tabs__nav nav nav-tabs bg-white" id="myTab" role="tablist">
+        <li class="tabs__nav-item nav-item w-50 text-center">
+          <a
+            class="tabs__nav-link nav-link active"
+            id="home-tab"
+            data-toggle="tab"
+            href="#hourly"
+            role="tab"
+            aria-controls="home"
+            aria-selected="true"
+            >Hourly</a
+          >
+        </li>
+
+        <li class="tabs__nav-item nav-item w-50 text-center ">
+          <a
+            class="tabs__nav-link nav-link"
+            id="contact-tab"
+            data-toggle="tab"
+            href="#daily"
+            role="tab"
+            aria-controls="contact"
+            aria-selected="false"
+            >Daily</a
+          >
+        </li>
+      </ul>
+      <div class="tabs__content tab-content " id="myTabContent">
+        <div
+          class="tabs__content__tab tab-pane fade show active"
+          id="hourly"
+          role="tabpanel"
+          aria-labelledby="home-tab"
+        >
+          <div
+            class="d-flex justify-content-between sub-display sub-display--hourly mt-3"
+          >
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
             </div>
-            <div
-              class="main-display__low d-flex  justify-content-between align-items-center"
-            >
-              <span id="hum-pers" class="main-display__wind-hum-num text-white"
-                >30</span
-              >
-              <img
-                class="d-block main-display__wind-hum-img"
-                src="img/icons/humidity.png"
-                alt="wind speed flag"
-              />
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
             </div>
           </div>
         </div>
-      </div>
-      <!--BOTTOM PANEL-->
-      <div class="col-md-6">
-        <div class="tabs bg-primary text-white">
-          <ul class="tabs__nav nav nav-tabs bg-white" id="myTab" role="tablist">
-            <li class="tabs__nav-item nav-item w-50 text-center">
-              <a
-                class="tabs__nav-link nav-link active"
-                id="home-tab"
-                data-toggle="tab"
-                href="#hourly"
-                role="tab"
-                aria-controls="home"
-                aria-selected="true"
-                >Hourly</a
-              >
-            </li>
-
-            <li class="tabs__nav-item nav-item w-50 text-center ">
-              <a
-                class="tabs__nav-link nav-link"
-                id="contact-tab"
-                data-toggle="tab"
-                href="#daily"
-                role="tab"
-                aria-controls="contact"
-                aria-selected="false"
-                >Daily</a
-              >
-            </li>
-          </ul>
-          <div class="tabs__content tab-content " id="myTabContent">
-            <div
-              class="tabs__content__tab tab-pane fade show active"
-              id="hourly"
-              role="tabpanel"
-              aria-labelledby="home-tab"
-            >
-              <div
-                class="d-flex justify-content-between sub-display sub-display--hourly mt-3"
-              >
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-              </div>
+        <div
+          class="tabs__content__tab tab-pane fade"
+          id="daily"
+          role="tabpanel"
+          aria-labelledby="contact-tab"
+        >
+          <div
+            class="d-flex justify-content-around sub-display  sub-display--daily mt-3"
+          >
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">MON</div>
+              <div class="sub-display__box__degree">20</div>
             </div>
-            <div
-              class="tabs__content__tab tab-pane fade"
-              id="daily"
-              role="tabpanel"
-              aria-labelledby="contact-tab"
-            >
-              <div
-                class="d-flex justify-content-around sub-display  sub-display--daily mt-3"
-              >
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">MON</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-                <div class="sub-display__box text-center d-flex  flex-column">
-                  <div class="sub-display__box__time">1 PM</div>
-                  <div class="sub-display__box__degree">20</div>
-                </div>
-              </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
+            </div>
+            <div class="sub-display__box text-center d-flex  flex-column">
+              <div class="sub-display__box__time">1 PM</div>
+              <div class="sub-display__box__degree">20</div>
             </div>
           </div>
         </div>
