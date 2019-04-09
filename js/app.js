@@ -235,6 +235,8 @@ $(function() {
       const cityName = ev.target.previousElementSibling.textContent.toLocaleLowerCase();
       ls.deleteCity(cityName);
       $(ev.target.parentElement).fadeOut();
+    } else if ((ev.target.className = "overlay__box__city-name")) {
+      main(ev.target.innerHTML);
     }
   });
 
