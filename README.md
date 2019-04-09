@@ -70,13 +70,9 @@ Ideas, suggestions and pull requests are welcome.I just Build my Local Weather A
 
 
 ## Todo
-
-* Make use (and parse) more provided weather data (+ add filters, formatting)
-* Internationalization / Localization
-* Provide "use current location" and fetch data via lat/lon
-* Build a view with n-day-forecast in typical weather app style
+* auto-detect a user’s location based off of their IP address
 * Improve UI/UX by integrating a fancy design, transitions, effects
-* Make The app a Progressive web application
+ 
 
 
 ## License
