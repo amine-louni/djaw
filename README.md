@@ -14,7 +14,7 @@ service for fetching and displaying weather data and forecasts based on a given 
 
 ## Demo
 
-A demo site running this little app can be found [here](https://amine-louni.github.io/djaw/).
+A demo site running this little app can be found [here](https://djaw.netlify.com/).
 
 
 ## Why?
@@ -25,9 +25,10 @@ Points of interests:
 * Building an app based on the [Dark Sky API](https://darksky.net/)
 * Building an app based on the [Open Cage API](https://opencagedata.com/api/)
 * Customizing bootstrap
-* Defining a service for fetching weather data from openweathermap.com  using async/await and promises
+* Defining a service for fetching weather data from api.darksky.com  using async/await and promises
 * Defining a custom directive for instantly embedding sort of "weather data day panel"
 * Build a progressive web application
+* get use with ES6 
  
 
 Djaw-app uses:
