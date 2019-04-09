@@ -23,7 +23,10 @@ $enable-rounded: false !default;
   width: 80%;
   transform: translateX(-50%);
   left: 50%;
-  top: 1rem;
+  color: #fff !important;
+  border-radius: 3px;
+  bottom: 35%;
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }
 /*MAIN DISPLAY*/
 
