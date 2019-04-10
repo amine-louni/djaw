@@ -70,8 +70,9 @@ Ideas, suggestions and pull requests are welcome.I just Build my Local Weather A
 
 
 ## Todo
-* auto-detect a user’s location based off of their IP address
+* Auto-detect a user’s location based off of their IP address
 * Improve UI/UX by integrating a fancy design, transitions, effects
+* Add push Notifications
  
 
 
